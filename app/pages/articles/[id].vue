@@ -1,10 +1,10 @@
 <template>
-    <article v-if="page" class="mx-auto flex flex-col mb-16 gap-6 md:gap-12 p-4">
+    <article v-if="page" class="mx-auto flex flex-col mb-16 gap-6 md:gap-12 p-5">
         <header clas="flex flex-col">
             <UCard class="relative shadow-xl overflow-hidden min-h-[20rem] lg:min-h-[25rem] flex flex-col" variant="subtle" :ui="{ body: 'flex flex-col flex-1' }">
-                <NuxtImg preload class="z-[0] absolute inset-0 object-cover dark:opacity-55 opacity-70 w-full h-full" :src="page?.thumbnail" :alt="page?.title" />
+                <NuxtImg preload class="z-[0] absolute inset-0 object-cover opacity-50 w-full h-full" :src="page?.thumbnail" :alt="page?.title" />
                 <div class="z-[1] flex-1 flex flex-col gap-2">
-                    <h1>{{ page?.title }}</h1>
+                    <h1 class="text-xl font-semibold">{{ page?.title }}</h1>
                     <p class="hidden md:block text-sm md:text-base">{{ page?.description }}</p>
                     <div class="flex-1 flex flex-wrap flex-row items-end justify-between gap-2">
                         <div class="gap-4 flex flex-col items-start">
@@ -22,17 +22,21 @@
                 </div>
             </UCard>
         </header>
-        <div class="w-full flex flex-row gap-5">
-            <ContentRenderer id="content" :value="page" class="markdown-content w-3/4 lg:mr-2" />
-            <UContentToc :links="page?.body?.toc?.links" :highlight="true" class="w-1/4">
+        <div class="w-full flex flex-col-reverse lg:flex-row gap-6">
+            <ContentRenderer id="content" :value="page" class="lg:w-3/4 lg:mr-2" />
+            <UContentToc :links="page?.body?.toc?.links" :highlight="true" class="lg:w-1/4 px-0 sm:px-0 lg:px-2">
                 <template #bottom>
-                    <UFieldGroup>
-                        <UButton @click="scrollToTop()" color="neutral" variant="subtle" icon="i-lucide-arrow-up">Scroll to top</UButton>
-                        <UButton @click="shareArticle()" color="neutral" variant="subtle" icon="i-lucide-share">Share</UButton>
+                    <UFieldGroup class="hidden lg:block">
+                        <UButton @click="scrollToTop()" class="w-1/2" block color="neutral" variant="subtle" icon="i-lucide-arrow-up">Scroll to top</UButton>
+                        <UButton @click="shareArticle()" class="w-1/2" block color="neutral" variant="subtle" icon="i-lucide-share">Share</UButton>
                     </UFieldGroup>
                 </template>
             </UContentToc>
         </div>
+        <UFieldGroup class="block lg:hidden" size="lg">
+            <UButton @click="scrollToTop()" color="neutral" class="w-1/2" block variant="subtle" icon="i-lucide-arrow-up">Scroll to top</UButton>
+            <UButton @click="shareArticle()" color="neutral" class="w-1/2" block variant="subtle" icon="i-lucide-share">Share</UButton>
+        </UFieldGroup>
         <UContentSurround :surround="(surround as any)" />
     </article>
 </template>

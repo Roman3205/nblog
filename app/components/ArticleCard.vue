@@ -9,7 +9,7 @@
                 <p class="text-sm font-semibold flex-none opacity-75">{{ dayjs(article.date).format("DD MMM YYYY") }}</p>
             </div>
         </div>
-        <NuxtImg preload class="z-[-1] transition-all duration-300 ease-out dark:opacity-40 opacity-70 object-cover h-full w-full left-[50%] top-[50%] absolute" :src="`${article.thumbnail}`" :alt="article.title" />
+        <NuxtImg preload class="z-[-1] transition-all duration-300 ease-out dark:opacity-40 opacity-60 object-cover h-full w-full left-[50%] top-[50%] absolute" :src="`${article.thumbnail}`" :alt="article.title" />
     </NuxtLink>
 </template>
 

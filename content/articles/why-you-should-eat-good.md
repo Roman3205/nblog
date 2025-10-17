@@ -6,7 +6,7 @@ tags: [tutorial, health]
 author: Roman
 readingTime: "10 min"
 author_description: "Coding guy"
-thumbnail: /assets/articles/why-you-should-eat-good.jpeg
+thumbnail: /why-you-should-eat-good.jpeg
 sitemap:
   lastmod: 2025-10-17
 robots: index, follow

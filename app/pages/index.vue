@@ -1,5 +1,5 @@
 <template>
-    <div class="flex mx-auto px-5">
+    <div class="flex mx-auto p-5">
         <div class="flex flex-col gap-6 items-start w-full">
             <UFieldGroup class="w-full">
                 <UInput type="text" placeholder="Search by title" class="w-full" v-model.trim="query"></UInput>

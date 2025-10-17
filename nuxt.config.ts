@@ -2,6 +2,22 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/content', '@nuxt/image', '@nuxt/ui'],
+  modules: [
+    '@nuxt/image',
+    '@nuxt/ui',
+    '@nuxtjs/seo',
+    '@nuxt/content',
+
+  ],
   css: ["~/assets/css/main.css"],
+  content: {
+    build: {
+      markdown: {
+          toc: {
+            depth: 3,
+            searchDepth: 2,
+          },
+      },
+    },
+  }
 })
